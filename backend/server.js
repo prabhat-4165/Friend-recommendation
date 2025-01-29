@@ -13,7 +13,7 @@ app.use(express.json());
 // Use CORS to allow requests from frontend (React)
 app.use(
   cors({
-    origin: `http://localhost:3000`,
+    origin: `https://friend-recommendation-five.vercel.app`,
     methods: ["GET", "POST"],
     credentials: true,
   })
