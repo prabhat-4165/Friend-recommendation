@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const authRoutes = require("./routes/authRoutes");
-const friendRoutes = require("./routes/friendRoutes");
+const authRoutes = require("./Routes/authRoutes");
+const friendRoutes = require("./Routes/friendRoutes");
 
 dotenv.config();
 const app = express();
