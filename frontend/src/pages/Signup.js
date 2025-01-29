@@ -14,11 +14,14 @@ function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/auth/signup", {
-        name,
-        email,
-        password,
-      });
+      await axios.post(
+        `https://friend-recommendation-g48o.onrender.com/api/auth/signup`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
       navigate("/login");
     } catch (err) {
       setError(err.response?.data?.error || "Error signing up");

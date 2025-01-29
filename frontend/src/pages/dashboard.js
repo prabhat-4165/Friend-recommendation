@@ -16,7 +16,7 @@ function Dashboard() {
     // Fetch Friend Recommendations
     const fetchRecommendations = async () => {
       const res = await axios.get(
-        `http://localhost:5000/api/friends/recommendations/${userId}`
+        `https://friend-recommendation-g48o.onrender.com/api/friends/recommendations/${userId}`
       );
       setRecommendations(res.data);
     };
@@ -24,7 +24,7 @@ function Dashboard() {
     // Fetch Friend Requests
     const fetchRequests = async () => {
       const res = await axios.get(
-        `http://localhost:5000/api/friends/requests/${userId}`
+        `https://friend-recommendation-g48o.onrender.com/api/friends/requests/${userId}`
       );
       setRequests(res.data);
     };
@@ -34,24 +34,30 @@ function Dashboard() {
   }, [userId]);
 
   const sendFriendRequest = async (receiverId) => {
-    await axios.post("http://localhost:5000/api/friends/request", {
-      senderId: userId,
-      receiverId,
-    });
+    await axios.post(
+      `https://friend-recommendation-g48o.onrender.com/api/friends/request`,
+      {
+        senderId: userId,
+        receiverId,
+      }
+    );
     alert("Friend request sent!");
   };
 
   const acceptRequest = async (requestId) => {
-    await axios.patch("http://localhost:5000/api/friends/accept", {
-      requestId,
-    });
+    await axios.patch(
+      `https://friend-recommendation-g48o.onrender.com/api/friends/accept`,
+      {
+        requestId,
+      }
+    );
     alert("Friend request accepted!");
     setRequests(requests.filter((request) => request._id !== requestId));
   };
 
   const searchUsers = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/auth/search?query=${searchQuery}`
+      `https://friend-recommendation-g48o.onrender.com/api/auth/search?query=${searchQuery}`
     );
     setSearchResults(res.data);
   };
