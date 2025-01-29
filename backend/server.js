@@ -10,7 +10,14 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+// Use CORS to allow requests from frontend (React)
+app.use(
+  cors({
+    origin: `http://localhost:3000`,
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 
 // Routes
 app.use("/api/auth", authRoutes);
