@@ -14,7 +14,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "https://friend-recommendation-g48o.onrender.com/api/auth/login",
+        `https://friend-recommendation-g48o.onrender.com/api/auth/login`,
         {
           email,
           password,
